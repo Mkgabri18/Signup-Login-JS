@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Signup/Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Form Project</title>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="container">
+  <div class="form-box animate__bounceIn"><img class="form-box__image" src="https://i.redd.it/ap3klnm9wdi21.png" alt="Logo User"/>
+    <h1 class="form-box__title">Login</h1>
+    <form class="form-box__body" onsubmit="alert('submit!'); return false"></form>
+  </div>
+</div>
+<template id="login">
+  <label for="userName">Username</label>
+  <input id="userName" type="text" name="userName" placeholder="Enter Username"/>
+  <label for="userPassword">Password</label>
+  <input id="userPassword" type="password" name="userPassword" placeholder="Enter Password"/>
+  <input type="submit" value="Login"/><a class="link-cta" href="#" onclick="recoveryLoad()">Hai dimenticato la password?</a><a class="link-cta" href="#" onclick="signupLoad()">Crea un nuovo account</a>
+</template>
+<template id="signup">
+  <label for="userName">UserName</label>
+  <input id="userName" type="text" name="userName" placeholder="Enter Username"/>
+  <label for="userPassword">Password</label>
+  <input id="userPassword" type="password" name="userPassword" placeholder="Enter Password"/>
+  <label for="userEmail">Email</label>
+  <input id="userEmail" type="text" name="userEmail" placeholder="Enter your email"/>
+  <input type="submit" value="Signup"/><a class="link-cta" href="#" onclick="loginLoad()">Login</a>
+</template>
+<template id="recovery">
+  <label for="userEmail">Email</label>
+  <input id="userEmail" type="email" name="userEmail" placeholder="Enter your email"/>
+  <input type="submit" value="Reset password"/><a class="link-cta" href="#" onclick="loginLoad()">Torna alla Login</a>
+</template>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+.container
+  .form-box.animate__bounceIn
+    img.form-box__image(
+      src="https://i.redd.it/ap3klnm9wdi21.png",
+      alt="Logo User"
+    )
+    h1.form-box__title Login
+    form.form-box__body(onsubmit="alert('submit!'); return false")
+
+//- template login
+template#login
+  //- USER NAME
+  label(for="userName") Username
+  input#userName(type="text", name="userName", placeholder="Enter Username")
+  //- USER PASSWORD
+  label(for="userPassword") Password
+  input#userPassword(
+    type="password",
+    name="userPassword",
+    placeholder="Enter Password"
+  )
+  //- SUBMIT
+  input(type="submit", value="Login")
+  //- RECOVER PWD
+  a.link-cta(href="#", onclick="recoveryLoad()") Hai dimenticato la password?
+  //- CREA ACCOUNT
+  a.link-cta(href="#", onclick="signupLoad()") Crea un nuovo account
+
+//- template signup
+template#signup
+  //- USER NAME
+  label(for="userName") UserName
+  input#userName(type="text", name="userName", placeholder="Enter Username")
+  //- USER PASSWORD
+  label(for="userPassword") Password
+  input#userPassword(
+    type="password",
+    name="userPassword",
+    placeholder="Enter Password"
+  )
+  //- USER EMAIL
+  label(for="userEmail") Email
+  input#userEmail(
+    type="text",
+    name="userEmail",
+    placeholder="Enter your email"
+  )
+  input(type="submit", value="Signup")
+  //- CREA ACCOUNT
+  a.link-cta(href="#", onclick="loginLoad()") Login
+
+//- template recovery
+template#recovery
+  //- EMAIL
+  label(for="userEmail") Email
+  input#userEmail(
+    type="email",
+    name="userEmail",
+    placeholder="Enter your email"
+  )
+  input(type="submit", value="Reset password")
+  //- SEND
+  a.link-cta(href="#", onclick="loginLoad()") Torna alla Login

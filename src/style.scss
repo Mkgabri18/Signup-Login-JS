@@ -1,0 +1,175 @@
+// ------- VARIABLES --------
+$primary-btn: #b80f22;
+$secondary-btn: #eba60e;
+$secondary-ghost: rgba(0, 0, 0, 0.8);
+$bg-white: #fff;
+$bg-black: #000;
+$bg-white-full: rgba(255, 255, 255, 1);
+$bg-black-full: rgba(0, 0, 0, 1);
+$bg-gradient1: rgba(131, 58, 180, 1);
+$bg-gradient2: rgba(252, 176, 69, 1);
+$t-white: #fff;
+$t-black: #000;
+$t-grey: darkgray;
+$icon-ghost: #ccc;
+$icon-checked: rgba(0, 143, 32, 1);
+$icon-trash: #ff0000;
+
+$breakpoints: (
+  l: 960px,
+  m: 768px,
+  s: 480px,
+  xs: 320
+);
+
+// ------- MIXINS -------------
+/* Mixins */
+@mixin from($bp) {
+  @if map-has-key($breakpoints, $bp) {
+    @media screen and (min-width: map_get($breakpoints, $bp)) {
+      @content;
+    }
+  } @else {
+    @media screen and (min-width: $bp) {
+      @content;
+    }
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Lato", sans-serif;
+  @include from(l) {
+    background: rgb(131, 58, 180);
+    background: linear-gradient(90deg, $bg-gradient1 0%, $bg-gradient2 100%);
+  }
+}
+
+h1 {
+  font-size: 2em;
+  @include from(l) {
+    font-size: 2.5em;
+  }
+}
+
+input,
+button {
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+// input { margin-top: .5em;}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  @include from(l) {
+    justify-content: center;
+  }
+}
+
+.form-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: auto;
+  position: relative;
+  height: 100%;
+  padding: 4em 2em;
+  color: $t-white;
+  background-color: rgba($bg-black, 0.9);
+  @include from(l) {
+    border-radius: 2%;
+    height: auto;
+    max-width: 500px;
+    background-color: rgba($bg-black, 0.5);
+  }
+  &__image {
+    width: 120px;
+    border-radius: 50%;
+    border: 4px solid $bg-white-full;
+    @include from(l) {
+      width: 80px;
+      position: absolute;
+      top: -40px;
+      left: calc(50% - 40px);
+    }
+  }
+  &__title {
+  }
+  &__body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    @include from(m) {
+      width: 50%;
+    }
+    @include from(l) {
+      width: 100%;
+    }
+    label:nth-child(n) {
+      font-size: 1.2em;
+    }
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #fff;
+      color: white;
+      padding: 0.8em 0;
+      min-height: 40px;
+      font-size: 1em;
+      margin-bottom: 1.5em;
+    }
+    input[type="submit"] {
+      border: none;
+      background: $primary-btn;
+      border-radius: 20px;
+      color: $t-white;
+      height: 40px;
+      outline: none;
+      margin-bottom: 2em;
+      @include from(l) {
+        width: 50%;
+        margin: 0 auto 2em;
+      }
+      &:hover {
+        cursor: pointer;
+        background: $secondary-btn;
+        color: $t-black;
+      }
+    }
+    a {
+      color: $t-grey;
+    }
+  }
+}
+
+.link-cta {
+  margin-bottom: 0.5em;
+}
+
+.hidden {
+  display: none;
+}
