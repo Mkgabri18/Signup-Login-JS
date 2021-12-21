@@ -30,6 +30,12 @@ const recoveryLoad = () => {
   FORM.appendChild(clone);
 };
 
+function iframeResize() {
+  let heightIF = document.body.scrollHeight;
+  console.log("height: ", heightIF);
+  parent.postMessage(heightIF);
+}
+
 // CLEAN INPUT FIELDS
 document.addEventListener("submit", () => {
   const inputFields = document.querySelectorAll("input");
@@ -42,4 +48,6 @@ document.addEventListener("submit", () => {
 // INIT
 document.addEventListener("DOMContentLoaded", () => {
   loginLoad();
+
+  setTimeout(iframeResize, 200);
 });
