@@ -32,8 +32,9 @@ const recoveryLoad = () => {
 
 function iframeResize() {
   let heightIfr = document.body.offsetHeight;
+  let sendMessage = "height:" + heightIfr
   console.log("height: ", heightIfr);
-  parent.postMessage(heightIfr, '*');
+  parent.postMessage(heightIfr , 'http://localhost:3000/');
 }
 
 // CLEAN INPUT FIELDS
